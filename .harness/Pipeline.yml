@@ -1,5 +1,5 @@
 pipeline:
-  identifier: cicd
+  identifier: harness
   name: CICD
   projectIdentifier: Harness
   orgIdentifier: default
