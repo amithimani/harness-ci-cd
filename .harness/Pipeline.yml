@@ -1,7 +1,7 @@
 pipeline:
   identifier: cicd
   name: CICD
-  projectIdentifier: Ronak
+  projectIdentifier: Harness
   orgIdentifier: default
   tags: {}
   properties:
