@@ -1,6 +1,6 @@
 pipeline:
   identifier: harness
-  name: CICD
+  name: Kotlin CICD
   projectIdentifier: KotlinService
   orgIdentifier: default
   tags: {}
@@ -175,7 +175,7 @@ pipeline:
               - step:
                   identifier: prod_approval
                   type: HarnessApproval
-                  name: UAT approval
+                  name: QA Approval
                   timeout: 1d
                   spec:
                     approvalMessage: |-
@@ -388,27 +388,6 @@ pipeline:
                     - AllErrors
                   action:
                     type: StageRollback
-    - stage:
-        identifier: update_jira
-        type: Approval
-        name: update jira
-        description: ""
-        spec:
-          execution:
-            steps:
-              - step:
-                  identifier: update_issue_to_done
-                  type: JiraUpdate
-                  name: update issue to done
-                  timeout: 5m
-                  spec:
-                    connectorRef: jira
-                    issueKey: <+pipeline.stages.UAT_Approval.spec.execution.steps.create_a_issue.issue.id>
-                    transitionTo:
-                      transitionName: ""
-                      status: Done
-                    fields: []
-        tags: {}
   variables: []
   notificationRules:
     - identifier: Pipeline_Notification
